@@ -8,10 +8,11 @@ app.factory('ThingFactory',['$http','$q',function($http,$q) {
 	}
 
 	factory.all = function() {
-		$http.get('/things').then(function(returned) {
-			console.log(returned)
-			return returned.data.things
-		})
+		return $http.get('/things')
+		// .then(function(returned) {
+			// console.log(returned)
+			// return returned.data.things
+		// })
 	}
 
 	factory.get = function(callback) {

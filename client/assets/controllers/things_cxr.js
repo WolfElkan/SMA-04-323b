@@ -2,7 +2,9 @@ app.controller('things_cxr',['$scope','$location','$routeParams','ThingFactory',
 
 	$scope.Thing = ThingFactory
 
-	$scope.thing_index = ThingFactory.all( )
+	ThingFactory.all().then(function(returned) {
+		$scope.thing_index = returned.data.things
+	})
 	$scope.thing_show = function(_id) {
 		return ThingFactory.find(_id)
 	}
